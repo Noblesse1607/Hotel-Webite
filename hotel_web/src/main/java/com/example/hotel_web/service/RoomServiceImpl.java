@@ -15,6 +15,7 @@ import javax.sql.rowset.serial.SerialBlob;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,8 +70,8 @@ public class RoomServiceImpl implements RoomService{
     }
 
     @Override
-    public List<Room> getAvailableRooms(RoomSearchRequest request) {
-        return roomRepository.findAvailableRoomsByDatesAndType(request);
+    public List<Room> getAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate, String roomType) {
+        return roomRepository.findAvailableRoomsByDatesAndType(checkInDate, checkOutDate, roomType);
     }
 
     @Override

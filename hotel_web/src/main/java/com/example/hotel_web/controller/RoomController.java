@@ -14,13 +14,16 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +40,7 @@ public class RoomController {
     BookingService bookingService;
 
     @PostMapping("/add/new-room")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<RoomResponse> addNewRoom(@ModelAttribute RoomRequest request) throws SQLException, IOException {
 
         Room savedRoom = roomService.addNewRoom(request);
@@ -70,8 +74,10 @@ public class RoomController {
     }
 
     @GetMapping("/available-rooms")
-    public ResponseEntity<List<RoomResponse>> getAvailableRooms(@RequestBody RoomSearchRequest request) throws SQLException {
-        List<Room> availableRooms = roomService.getAvailableRooms(request);
+    public ResponseEntity<List<RoomResponse>> getAvailableRooms(@RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkInDate,
+                                                                @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate checkOutDate,
+                                                                @RequestParam("roomType") String roomType) throws SQLException {
+        List<Room> availableRooms = roomService.getAvailableRooms(checkInDate,checkOutDate,roomType);
         List<RoomResponse> roomResponses = new ArrayList<>();
         for (Room room : availableRooms){
             byte[] photoBytes = roomService.getRoomPhotoByRoomId(room.getId());
@@ -117,12 +123,14 @@ public class RoomController {
     }
 
     @DeleteMapping("/delete/{roomId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteRoom(@PathVariable("roomId") Long roomId){
         roomService.deleteRoom(roomId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping("/update/{roomId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<RoomResponse> updateRoom(@PathVariable("roomId") Long roomId, @ModelAttribute RoomRequest request) throws SQLException, IOException {
 
         Room updateRoom = roomService.updateRoom(roomId,request);

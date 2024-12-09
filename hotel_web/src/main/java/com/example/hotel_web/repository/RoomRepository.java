@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -16,10 +17,11 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
 
     //viet query tim phong voi roomType da chon va id phong khong nam trong nhung id ma co thoi gian dat phong nam ngoai khoang thoi gian request
     @Query(" SELECT r FROM Room r " +
-            " WHERE r.roomType LIKE %:#{#request.roomType}% " +
+            " WHERE r.roomType LIKE %:roomType% " +
             " AND r.id NOT IN (" +
             "  SELECT br.room.id FROM BookedRoom br " +
-            "  WHERE ((br.checkInDate <= :#{#request.checkOutDate}) AND (br.checkOutDate >= :#{#request.checkInDate}))" +
+            "  WHERE ((br.checkInDate <= :checkOutDate) AND (br.checkOutDate >= :checkInDate))" +
             ")")
-    List<Room> findAvailableRoomsByDatesAndType(@Param("request") RoomSearchRequest request);
+    List<Room> findAvailableRoomsByDatesAndType(LocalDate checkInDate, LocalDate checkOutDate, String roomType);
 }
+

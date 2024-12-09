@@ -12,7 +12,10 @@ public enum ErrorCode {
     ERROR_UPDATE(1004, "Fail updating room", HttpStatus.INTERNAL_SERVER_ERROR),
     BOOKING_NOT_FOUND(1005, "No booking found with booking code :", HttpStatus.BAD_REQUEST),
     ERROR_CHECK1(1006,"Check-in date must come before check-out date", HttpStatus.BAD_REQUEST),
-    ERROR_CHECK2(1007, "Sorry, This room is not available for the selected dates;", HttpStatus.BAD_REQUEST);
+    ERROR_CHECK2(1007, "Sorry, This room is not available for the selected dates;", HttpStatus.BAD_REQUEST),
+    EXIST_BY_ROLE_NAME(1008, "Existed role name", HttpStatus.BAD_REQUEST),
+    USER_NOT_FOUND(1009, "User not found", HttpStatus.NOT_FOUND),
+    USER_EXISTED(1010, "User existed", HttpStatus.BAD_REQUEST);
 
     private int code;
     private String message;

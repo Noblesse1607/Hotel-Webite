@@ -6,6 +6,7 @@ import com.example.hotel_web.entity.Room;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,5 +26,5 @@ public interface RoomService {
 
     Optional<Room> getRoomById(Long roomId);
 
-    List<Room> getAvailableRooms(RoomSearchRequest request);
+    List<Room> getAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate, String roomType);
 }

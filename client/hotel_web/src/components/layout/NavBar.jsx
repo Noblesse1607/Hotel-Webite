@@ -1,17 +1,23 @@
-import React, {useContext, useState} from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useContext, useState } from "react"
+import { NavLink, Link } from "react-router-dom"
+import Logout from "../auth/Logout"
+
 
 const NavBar = () => {
-    const [showAccount, setShowAccount] = useState(false)
+	const [showAccount, setShowAccount] = useState(false)
 
-    const handleAccountClick = () => {
+	const handleAccountClick = () => {
 		setShowAccount(!showAccount)
 	}
-  return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-5 sticky-top">
+
+	const isLoggedIn = localStorage.getItem("token")
+	const userRole = localStorage.getItem("userRole")
+
+	return (
+		<nav className="navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-5 sticky-top">
 			<div className="container-fluid">
 				<Link to={"/"} className="navbar-brand">
-					<span className="hotel-color">My Hotel</span>
+					<span className="hotel-color">lakeSide Hotel</span>
 				</Link>
 
 				<button
@@ -33,14 +39,16 @@ const NavBar = () => {
 							</NavLink>
 						</li>
 
-                <li className='nav-item'>
-                    <NavLink className="nav-link" aria-current="page" to={"/admin"}>
-                        Admin
-                    </NavLink>
-                </li>
-            </ul>
+						{isLoggedIn && userRole === "ROLE_ADMIN" && (
+							<li className="nav-item">
+								<NavLink className="nav-link" aria-current="page" to={"/admin"}>
+									Admin
+								</NavLink>
+							</li>
+						)}
+					</ul>
 
-            <ul className="d-flex navbar-nav">
+					<ul className="d-flex navbar-nav">
 						<li className="nav-item">
 							<NavLink className="nav-link" to={"/find-booking"}>
 								Find my booking
@@ -48,7 +56,7 @@ const NavBar = () => {
 						</li>
 
 						<li className="nav-item dropdown">
-                            <a
+							<a
 								className={`nav-link dropdown-toggle ${showAccount ? "show" : ""}`}
 								href="#"
 								role="button"
@@ -60,37 +68,24 @@ const NavBar = () => {
 							</a>
 
 							<ul
-                             className={`dropdown-menu ${showAccount ? "show" : ""}`}
-                             aria-labelledby="navbarDropdown">
-                        
+								className={`dropdown-menu ${showAccount ? "show" : ""}`}
+								aria-labelledby="navbarDropdown">
+								{isLoggedIn ? (
+									<Logout />
+								) : (
 									<li>
 										<Link className="dropdown-item" to={"/login"}>
 											Login
 										</Link>
 									</li>
-
-                                    <li>
-										<Link className="dropdown-item" to={"/profile"}>
-											Profile
-										</Link>
-									</li>
-                                    <li>
-                                        <hr className='dropdown-divider'/>
-                                    </li>
-                                    <li>
-										<Link className="dropdown-item" to={"/logout"}>
-											Logout
-										</Link>
-									</li>
-								
+								)}
 							</ul>
 						</li>
 					</ul>
-
-           </div>
-        </div>
-    </nav>
-  )
+				</div>
+			</div>
+		</nav>
+	)
 }
 
 export default NavBar

@@ -56,10 +56,10 @@ public class WebSecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/auth/register-user", "/roles/create-new-role").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/**", "/rooms/**","/bookings/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/**", "/bookings/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/auth/**", "/rooms/**","/bookings/**").permitAll()
-                        .requestMatchers(HttpMethod.PUT, "/auth/**", "/rooms/**","/bookings/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/auth/**", "/rooms/**","/bookings/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/auth/**", "/bookings/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/auth/**", "/bookings/**").permitAll()
                         .requestMatchers("/roles/**").hasRole("ADMIN")
                         .anyRequest().authenticated());
         http.authenticationProvider(authenticationProvider());

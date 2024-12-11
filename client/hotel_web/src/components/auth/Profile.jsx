@@ -81,7 +81,7 @@ const Profile = () => {
 			{message && <p className="text-danger">{message}</p>}
 			{user ? (
 				<div className="card p-5 mt-5" style={{ backgroundColor: "whitesmoke" }}>
-					<h4 className="card-title text-center">User Information</h4>
+					<h4 className="card-title text-center">Thông tin cá nhân</h4>
 					<div className="card-body">
 						<div className="col-md-10 mx-auto">
 							<div className="card mb-3 shadow">
@@ -148,7 +148,7 @@ const Profile = () => {
 								</div>
 							</div>
 
-							<h4 className="card-title text-center">Booking History</h4>
+							<h4 className="card-title text-center">Lịch sử đặt phòng</h4>
 
 							{bookings.length > 0 ? (
 								<table className="table table-bordered table-hover shadow">
@@ -166,16 +166,18 @@ const Profile = () => {
 									<tbody>
 										{bookings.map((booking, index) => (
 											<tr key={index}>
-												<td>{booking.id}</td>
+												<td>{booking.bookingId}</td>
 												<td>{booking.room.id}</td>
 												<td>{booking.room.roomType}</td>
-												<td>
-													{moment(booking.checkInDate).subtract(1, "month").format("MMM Do, YYYY")}
+												<td>								
+												{moment(booking.checkInDate, "YYYYMMDD").isValid()
+          ? moment(booking.checkInDate, "YYYYMMDD").subtract(1, "month").format("MMM Do, YYYY")
+          : "Invalid date"}
 												</td>
 												<td>
-													{moment(booking.checkOutDate)
-														.subtract(1, "month")
-														.format("MMM Do, YYYY")}
+												{moment(booking.checkOutDate, "YYYYMMDD").isValid()
+          ? moment(booking.checkOutDate, "YYYYMMDD").subtract(1, "month").format("MMM Do, YYYY")
+          : "Invalid date"}
 												</td>
 												<td>{booking.bookingConfirmationCode}</td>
 												<td className="text-success">On-going</td>

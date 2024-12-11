@@ -9,10 +9,24 @@ const BookingsTable = ({ bookingInfo, handleBookingCancellation }) => {
 		let filtered = bookingInfo
 		if (startDate && endDate) {
 			filtered = bookingInfo.filter((booking) => {
-				const bookingStarDate = parseISO(booking.checkInDate)
-				const bookingEndDate = parseISO(booking.checkOutDate)
+				console.log(booking.checkInDate, typeof booking.checkInDate);
+                console.log(booking.checkOutDate, typeof booking.checkOutDate);
+				// const bookingStarDate = parseISO(booking.checkInDate)
+				// const bookingEndDate = parseISO(booking.checkOutDate)
+
+				const bookingStartDate = typeof booking.checkInDate === "string" 
+        ? parseISO(booking.checkInDate) 
+        : booking.checkInDate instanceof Date 
+        ? booking.checkInDate 
+        : new Date(booking.checkInDate); // Nếu là kiểu khác, chuyển sang đối tượng Date
+        
+      const bookingEndDate = typeof booking.checkOutDate === "string" 
+        ? parseISO(booking.checkOutDate) 
+        : booking.checkOutDate instanceof Date 
+        ? booking.checkOutDate 
+        : new Date(booking.checkOutDate);
 				return (
-					bookingStarDate >= startDate && bookingEndDate <= endDate && bookingEndDate > startDate
+					bookingStartDate >= startDate && bookingEndDate <= endDate && bookingEndDate > startDate
 				)
 			})
 		}
@@ -47,7 +61,7 @@ const BookingsTable = ({ bookingInfo, handleBookingCancellation }) => {
 				</thead>
 				<tbody className="text-center">
 					{filteredBookings.map((booking, index) => (
-						<tr key={booking.id}>
+						<tr key={booking.bookingId}>
 							<td>{index + 1}</td>
 							<td>{booking.bookingId}</td>
 							<td>{booking.room.id}</td>

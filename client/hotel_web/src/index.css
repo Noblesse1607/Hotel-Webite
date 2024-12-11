@@ -82,7 +82,7 @@ body {
 
 
 .parallax {
-  background-image: url("./assets/images/parrall.jpg");
+  background-image: url("./assets/images/bgr3.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -189,7 +189,7 @@ body {
 
 /* The header banner */
 .header-banner {
-  background-image:  url("./assets/images/services-1.jpg");
+  background-image:  url("./assets/images/brg.jpg");
    background-size: cover;
   background-position: center;
    position: relative;

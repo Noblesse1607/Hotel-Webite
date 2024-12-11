@@ -40,7 +40,7 @@ const Login = () => {
 			<h2>Login</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="row mb-3">
-					<label htmlFor="email" className="col-sm-2 col-form-label">
+					<label htmlFor="email" className="col-sm-1 col-form-label">
 						Email
 					</label>
 					<div>
@@ -56,7 +56,7 @@ const Login = () => {
 				</div>
 
 				<div className="row mb-3">
-					<label htmlFor="password" className="col-sm-2 col-form-label">
+					<label htmlFor="password" className="col-sm-1 col-form-label">
 						Password
 					</label>
 					<div>

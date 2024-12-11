@@ -8,7 +8,7 @@ const MainHeader = () => {
 				<h1>
 					Welcome to <span className="hotel-color">Aurora</span>
 				</h1>
-				<h4>Experience the Best Hospitality in Town</h4>
+				<h4>Trải nghiệm dịch vụ cùng Aurora</h4>
 			</div>
 		</header>
 	)

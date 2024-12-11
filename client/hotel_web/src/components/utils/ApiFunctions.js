@@ -6,9 +6,10 @@ export const api = axios.create({
 
 export const getHeader = () => {
 	const token = localStorage.getItem("token")
+	console.log("Token:", token)
 	return {
-		Authorization: `Bearer ${token}`,
-		"Content-Type": "application/json"
+		Authorization: `Bearer ${token}`
+		// "Content-Type": "application/json"
 	}
 }
 
@@ -19,7 +20,9 @@ export async function addRoom(photo, roomType , roomPrice) {
     formData.append("roomType", roomType)
     formData.append("roomPrice", roomPrice)
 
-    const response = await api.post("/hotel/rooms/add/new-room", formData)
+    const response = await api.post("/hotel/rooms/add/new-room", formData,{
+		headers: getHeader()
+	})
     if (response.status === 201) {
         return true
     } else {
@@ -47,7 +50,9 @@ export async function getAllRooms() {
 
 export async function deleteRoom(roomId) {
     try {
-        const result = await api.delete(`/hotel/rooms/delete/${roomId}`)
+        const result = await api.delete(`/hotel/rooms/delete/${roomId}`,{
+			headers: getHeader()
+		})
         return result.data
     } catch (error) {
         throw new Error("Error fetching rooms")
@@ -61,7 +66,9 @@ export async function updateRoom(roomId, roomData) {
     formData.append("roomType", roomData.roomType)
     formData.append("roomPrice", roomData.roomPrice)
 
-    const response = await api.put(`/hotel/rooms/update/${roomId}`, formData)
+    const response = await api.put(`/hotel/rooms/update/${roomId}`, formData,{
+		headers: getHeader()
+	})
     return response
     
 }

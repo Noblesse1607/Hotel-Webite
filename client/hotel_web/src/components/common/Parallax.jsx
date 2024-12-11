@@ -7,9 +7,9 @@ const Parallax = () => {
 			<Container className="text-center px-5 py-5 justify-content-center">
 				<div className="animated-texts bounceIn">
 					<h1>
-						Experience the Best hospitality at <span className="hotel-color">Aurora</span>
+						Trải nghiệm tốt nhất cùng <span className="hotel-color">Aurora</span>
 					</h1>
-					<h3>We offer the best services for all your needs.</h3>
+					<h3>Nơi cung cấp dịch vụ tốt nhất cho mọi nhu cầu của bạn</h3>
 				</div>
 			</Container>
 		</div>

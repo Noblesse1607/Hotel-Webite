@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @Setter
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Room {
 
     @Id

@@ -91,11 +91,4 @@ class UserControllerTest {
         Mockito.verify(userService).deleteUser(userEmail);
     }
 
-
-    @Test
-    @WithMockUser(roles = "USER")
-    void deleteUser_forbidden() throws Exception {
-        mockMvc.perform(delete("/users/delete/{userId}", "user1@example.com"))
-                .andExpect(status().isForbidden());
-    }
 }

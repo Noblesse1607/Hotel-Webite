@@ -171,13 +171,13 @@ const Profile = () => {
 												<td>{booking.room.roomType}</td>
 												<td>								
 												{moment(booking.checkInDate, "YYYYMMDD").isValid()
-          ? moment(booking.checkInDate, "YYYYMMDD").subtract(1, "month").format("MMM Do, YYYY")
-          : "Invalid date"}
+                                                      ? moment(booking.checkInDate, "YYYYMMDD").subtract(1, "month").format("MMM Do, YYYY")
+                                                      : "Invalid date"}
 												</td>
 												<td>
 												{moment(booking.checkOutDate, "YYYYMMDD").isValid()
-          ? moment(booking.checkOutDate, "YYYYMMDD").subtract(1, "month").format("MMM Do, YYYY")
-          : "Invalid date"}
+                                                      ? moment(booking.checkOutDate, "YYYYMMDD").subtract(1, "month").format("MMM Do, YYYY")
+                                                      : "Invalid date"}
 												</td>
 												<td>{booking.bookingConfirmationCode}</td>
 												<td className="text-success">On-going</td>

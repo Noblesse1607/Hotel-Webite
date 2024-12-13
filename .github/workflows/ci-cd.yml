@@ -40,6 +40,10 @@ jobs:
   # CI cho Spring Boot
   backend-ci:
     runs-on: ubuntu-latest
+    env:
+      SPRING_DATASOURCE_URL: jdbc:mysql://your-database-host:3306/hotel_web
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

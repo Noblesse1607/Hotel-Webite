@@ -51,14 +51,14 @@ jobs:
           java-version: '17' # Phiên bản Java phù hợp
 
       - name: Grant execute permission to mvnw
-        run: chmod +x ./mvnw    
+        run: chmod +x ./hotel_web/mvnw    
       
       - name: Build backend
-        run: ./mvnw clean package
+        run: ./hotel_web/mvnw clean package
         working-directory: ./hotel_web # Đường dẫn tới thư mục backend
       
       - name: Run tests
-        run: ./mvnw test
+        run: ./hotel_web/mvnw test
         working-directory: ./hotel_web
 
       - name: Upload backend build artifact

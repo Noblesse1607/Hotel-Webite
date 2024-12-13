@@ -1,0 +1,65 @@
+name: CI/CD for Aurora
+
+on:
+  push:
+    branches:
+      - main  # Chạy workflow khi có thay đổi trên nhánh main
+  pull_request:
+
+jobs:
+  # CI cho ReactJS
+  frontend-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Hoặc phiên bản Node.js phù hợp
+        
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./client/hotel_web # Đường dẫn tới thư mục frontend
+      
+      - name: Run tests
+        run: npm test
+        working-directory: ./client/hotel_web
+      
+      - name: Build frontend
+        run: npm run build
+        working-directory: ./client/hotel_web
+      
+      - name: Upload frontend build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: ./clent/hotel_web/dist # Thư mục chứa build output
+
+  # CI cho Spring Boot
+  backend-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17' # Phiên bản Java phù hợp
+      
+      - name: Build backend
+        run: ./mvnw clean package
+        working-directory: ./hotel_web # Đường dẫn tới thư mục backend
+      
+      - name: Run tests
+        run: ./mvnw test
+        working-directory: ./hotel_web
+
+      - name: Upload backend build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-jar
+          path: ./hotel_web/target/*.jar # Đường dẫn file JAR sau khi build

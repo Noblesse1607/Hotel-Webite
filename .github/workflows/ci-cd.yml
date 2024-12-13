@@ -54,11 +54,11 @@ jobs:
         run: chmod +x ./hotel_web/mvnw    
       
       - name: Build backend
-        run: ./hotel_web/mvnw clean package
+        run: ./mvnw clean package
         working-directory: ./hotel_web # Đường dẫn tới thư mục backend
       
       - name: Run tests
-        run: ./hotel_web/mvnw test
+        run: ./mvnw test
         working-directory: ./hotel_web
 
       - name: Upload backend build artifact

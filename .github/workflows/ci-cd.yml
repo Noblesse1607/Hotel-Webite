@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18' # Hoặc phiên bản Node.js phù hợp
         
@@ -32,7 +32,7 @@ jobs:
         working-directory: ./client/hotel_web
       
       - name: Upload frontend build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: frontend-build
           path: ./clent/hotel_web/dist # Thư mục chứa build output
@@ -40,16 +40,21 @@ jobs:
   # CI cho Spring Boot
   backend-ci:
     runs-on: ubuntu-latest
-    env:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/hotel_web
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: hotel_web
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17' # Phiên bản Java phù hợp
@@ -66,7 +71,7 @@ jobs:
         working-directory: ./hotel_web
 
       - name: Upload backend build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: backend-jar
           path: ./hotel_web/target/*.jar # Đường dẫn file JAR sau khi build

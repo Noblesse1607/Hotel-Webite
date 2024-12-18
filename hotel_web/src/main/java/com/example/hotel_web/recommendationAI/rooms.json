@@ -1,0 +1,325 @@
+[
+  {
+    "id": 3,
+    "max_guests": 2,
+    "room_price": 24,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": false,
+      "pool": false
+    }
+  },
+  {
+    "id": 4,
+    "max_guests": 2,
+    "room_price": 25,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": false,
+      "pool": false
+    }
+  },
+  {
+    "id": 5,
+    "max_guests": 2,
+    "room_price": 30,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": false,
+      "pool": false
+    }
+  },
+  {
+    "id": 6,
+    "max_guests": 3,
+    "room_price": 35,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": false
+    }
+  },
+  {
+    "id": 7,
+    "max_guests": 4,
+    "room_price": 60,
+    "room_type": "Phòng đôi",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": false
+    }
+  },
+  {
+    "id": 8,
+    "max_guests": 2,
+    "room_price": 49,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường King",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 9,
+    "max_guests": 2,
+    "room_price": 15,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đơn",
+    "amenities": {
+      "wifi": true,
+      "tv": false,
+      "ac": true,
+      "minibar": true,
+      "pool": false
+    }
+  },
+  {
+    "id": 10,
+    "max_guests": 4,
+    "room_price": 55,
+    "room_type": "Phòng đôi",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 11,
+    "max_guests": 3,
+    "room_price": 80,
+    "room_type": "Phòng Suite",
+    "bed_type": "Giường King",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 12,
+    "max_guests": 2,
+    "room_price": 80,
+    "room_type": "Phòng Suite",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 13,
+    "max_guests": 2,
+    "room_price": 65,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 14,
+    "max_guests": 3,
+    "room_price": 120,
+    "room_type": "Phòng Suite",
+    "bed_type": "Giường King",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 15,
+    "max_guests": 2,
+    "room_price": 130,
+    "room_type": "Phòng Suite",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 16,
+    "max_guests": 2,
+    "room_price": 50,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 17,
+    "max_guests": 2,
+    "room_price": 45,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": false,
+      "pool": true
+    }
+  },
+  {
+    "id": 18,
+    "max_guests": 4,
+    "room_price": 59,
+    "room_type": "Phòng đôi",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 19,
+    "max_guests": 2,
+    "room_price": 100,
+    "room_type": "Phòng Suite",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 20,
+    "max_guests": 2,
+    "room_price": 80,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 21,
+    "max_guests": 4,
+    "room_price": 80,
+    "room_type": "Phòng đôi",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 22,
+    "max_guests": 2,
+    "room_price": 65,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 23,
+    "max_guests": 2,
+    "room_price": 54,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 24,
+    "max_guests": 2,
+    "room_price": 43,
+    "room_type": "Phòng đơn",
+    "bed_type": "Giường đôi",
+    "amenities": {
+      "wifi": true,
+      "tv": false,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  },
+  {
+    "id": 25,
+    "max_guests": 2,
+    "room_price": 50,
+    "room_type": "Phòng đôi",
+    "bed_type": "Giường đơn",
+    "amenities": {
+      "wifi": true,
+      "tv": true,
+      "ac": true,
+      "minibar": true,
+      "pool": true
+    }
+  }
+
+]

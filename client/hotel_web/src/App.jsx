@@ -20,6 +20,7 @@ import Registration from "./components/auth/Registration"
 import Profile from "./components/auth/Profile"
 import { AuthProvider } from "./components/auth/AuthProvider"
 import RequireAuth from "./components/auth/RequireAuth"
+import RoomPredictionForm from './components/recommend/RoomPredictionForm';
 
 function App() {
   return (
@@ -51,6 +52,9 @@ function App() {
 
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/logout" element={<FindBooking />} />
+
+          <Route path="/prediction" element={<RoomPredictionForm />} />
+            
         </Routes>
       </Router>
       <Footer />

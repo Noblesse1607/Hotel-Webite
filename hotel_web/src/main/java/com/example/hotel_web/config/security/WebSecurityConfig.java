@@ -55,7 +55,7 @@ public class WebSecurityConfig {
                         exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/auth/register-user", "/roles/create-new-role").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/register-user", "/roles/create-new-role", "/api/ai/predict-room").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/**", "/bookings/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/auth/**", "/rooms/**","/bookings/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/auth/**", "/bookings/**").permitAll()
